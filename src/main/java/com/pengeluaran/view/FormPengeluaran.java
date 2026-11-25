@@ -198,6 +198,8 @@ public class FormPengeluaran extends JFrame implements PengeluaranView {
 
     private void isiFormDariBaris(int baris) {
         if (baris < 0) {
+            idTerpilih = null;
+            perbaruiStatusTombol();
             return;
         }
         // Baris di layar belum tentu sama dengan baris di data, karena tabel bisa diurutkan.
@@ -213,8 +215,10 @@ public class FormPengeluaran extends JFrame implements PengeluaranView {
 
     private void perbaruiStatusTombol() {
         boolean adaBarisTerpilih = idTerpilih != null;
+        btnCreate.setEnabled(!adaBarisTerpilih);
         btnUpdate.setEnabled(adaBarisTerpilih);
         btnDelete.setEnabled(adaBarisTerpilih);
+        btnReset.setEnabled(adaBarisTerpilih);
     }
 
     // ---------- konversi ----------
